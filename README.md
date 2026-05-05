@@ -133,21 +133,6 @@ where $s(\cdot, \cdot)$ is cosine similarity and $N$ is the batch size.
 
 ---
 
-## Citation
-
-If you use this code or findings, please cite:
-
-```bibtex
-@misc{elamanchili2026domainadaptiverag,
-  title  = {Domain-Adaptive {RAG}: Does Continued Pre-Training of the Retriever Help?},
-  author = {Elamanchili, Akhil},
-  year   = {2026},
-  note   = {CS505 Final Project, Boston University}
-}
-```
-
----
-
 ## References
 
 - Lewis et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. *NeurIPS*.

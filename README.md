@@ -1,6 +1,6 @@
 # Domain-Adaptive RAG: Does Continued Pre-Training of the Retriever Help?
 
-**CS505: Natural Language Processing — Final Project**
+**CS505: Natural Language Processing - Final Project**
 **Boston University, Spring 2026**
 **Akhil Elamanchili (aelamanc@bu.edu)**
 
@@ -33,19 +33,16 @@ This project investigates whether continued pre-training of a dense passage retr
 
 ```
 ├── notebooks/
-│   ├── 1_pubmedqa_baselines.ipynb       # BM25 + general Contriever baselines (11K corpus)
-│   ├── 2_contriever_dapt.ipynb          # Continued pre-training on PubMed abstracts
-│   ├── 3_contriever_lora.ipynb          # LoRA adaptation of Contriever
-│   └── 4_rag_evaluation.ipynb           # End-to-end RAG with Llama 3.2 3B
+│   ├── pubmedqa_baselines.ipynb         # BM25 + general Contriever baselines (11K corpus)
+│   ├── contriever_dapt.ipynb            # Continued pre-training on PubMed abstracts
+│   ├── contriever_lora.ipynb            # LoRA adaptation of Contriever
+│   └── rag_evaluation.ipynb             # End-to-end RAG with Llama 3.2 3B
 ├── results/
 │   ├── baseline_results_expanded.json   # BM25 + Contriever retrieval metrics
 │   ├── dapt_results.json                # DAPT retrieval metrics
 │   ├── lora_results.json                # LoRA retrieval metrics
 │   ├── all_results.json                 # Full results (retrieval + accuracy)
 │   └── error_analysis.json             # Failure type counts by retriever
-├── report/
-│   ├── cs505_final_report.tex           # ACL-format final report
-│   └── references.bib                   # BibTeX references
 └── README.md
 ```
 
@@ -81,26 +78,26 @@ Then add your HuggingFace token in the login cell.
 
 ## Running the Notebooks
 
-Run the notebooks in order. Each saves outputs to Google Drive (`/content/drive/MyDrive/cs505_project/`) for persistence across sessions.
+Run the notebooks in the order listed below. Each saves outputs to Google Drive (`/content/drive/MyDrive/cs505_project/`) for persistence across sessions.
 
-### Notebook 1 — Baselines (`1_pubmedqa_baselines.ipynb`)
+### Notebook 1 — Baselines (`pubmedqa_baselines.ipynb`)
 - Loads PubMedQA labeled split (1,000 queries)
 - Builds expanded corpus with 10,000 distractor abstracts from PubMedQA artificial split
 - Evaluates BM25 and general Contriever
 - Saves: `baseline_results_expanded.json`, `corpus_embeddings_expanded.npy`, `query_embeddings.npy`
 
-### Notebook 2 — DAPT (`2_contriever_dapt.ipynb`)
+### Notebook 2 — DAPT (`contriever_dapt.ipynb`)
 - Continues Contriever's contrastive pre-training on ~211K PubMed abstracts
 - Random cropping objective: 64-token spans, temperature τ=0.05
 - Hyperparameters: batch_size=64, lr=1e-5, 3 epochs, 500 steps/epoch
 - Saves: `contriever_dapt_best/` checkpoint, `dapt_results.json`, `corpus_emb_dapt.npy`
 
-### Notebook 3 — LoRA (`3_contriever_lora.ipynb`)
+### Notebook 3 — LoRA (`contriever_lora.ipynb`)
 - Applies LoRA to Contriever attention layers (r=16, α=32, target: query+value)
 - Same contrastive objective as DAPT, lr=1e-4, ~1.2M trainable parameters
 - Saves: `contriever_lora_best/` checkpoint, `lora_results.json`, `corpus_emb_lora.npy`
 
-### Notebook 4 — RAG Evaluation (`4_rag_evaluation.ipynb`)
+### Notebook 4 — RAG Evaluation (`rag_evaluation.ipynb`)
 - Loads all retrieval results and pre-computed embeddings from Drive
 - Runs RAG pipeline: retrieve top-5 passages → Llama 3.2 3B-Instruct → yes/no/maybe
 - Evaluates on 200-query sample (~4.5s per query on T4)

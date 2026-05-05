@@ -1,0 +1,14 @@
+{
+  "bm25": {
+    "Short/vague query": 7,
+    "Highly specialized terminology": 4,
+    "General yes/no question": 36,
+    "Complex multi-concept query": 29
+  },
+  "dapt": {
+    "Short/vague query": 4,
+    "Highly specialized terminology": 3,
+    "General yes/no question": 30,
+    "Complex multi-concept query": 14
+  }
+}

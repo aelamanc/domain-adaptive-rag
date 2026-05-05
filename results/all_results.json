@@ -1,0 +1,34 @@
+{
+  "bm25": {
+    "retrieval": {
+      "Recall@5": 0.924,
+      "Recall@20": 0.953,
+      "MRR": 0.876
+    },
+    "accuracy": 0.585
+  },
+  "contriever": {
+    "retrieval": {
+      "Recall@5": 0.793,
+      "Recall@20": 0.942,
+      "MRR": 0.697
+    },
+    "accuracy": 0.575
+  },
+  "dapt": {
+    "retrieval": {
+      "Recall@5": 0.949,
+      "Recall@20": 0.982,
+      "MRR": 0.893
+    },
+    "accuracy": 0.595
+  },
+  "lora": {
+    "retrieval": {
+      "Recall@5": 0.947,
+      "Recall@20": 0.981,
+      "MRR": 0.88
+    },
+    "accuracy": 0.645
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "bm25": {
+    "Recall@5": 0.924,
+    "Recall@20": 0.953,
+    "MRR": 0.8759921752653954
+  },
+  "contriever": {
+    "Recall@5": 0.793,
+    "Recall@20": 0.942,
+    "MRR": 0.6969849066954725
+  },
+  "dataset": "PubMedQA (pqa_labeled)",
+  "num_queries": 1000,
+  "num_corpus": 11000,
+  "num_distractors": 10000
+}
